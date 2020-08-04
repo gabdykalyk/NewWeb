@@ -1,0 +1,356 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0; /* ПО УМОЛЧАНИЮ*/
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    color: #6c7279;
+    -webkit-font-smoothing: antialiased; 
+    background-color: #fff;
+}
+
+/* УСЛОВИЕ ДЛЯ ВСЕГО ДОКУМЕНТА*/
+*,
+*:before, /* ПСЕВДОЭЛЕМЕНТЫ*/
+*:after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {  /* СРАЗУ УБИРАЕМ MARGIN */
+    margin: 0;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+
+/* CONTAINER
+========================*/
+
+.container {
+    width: 100%;    /* ЗАНИМАЕТ 100% ЭКРАНА */
+    max-width: 1200px;  
+    margin: 0 auto;  /* СВЕРХУ И СНИЗУ ЗНАЧЕНИЕ 0, КОНТЕНТ ПО ЦЕНТРУ*/
+    padding: 0 15px;
+}
+
+/* HEADER
+============================*/
+
+.header {
+    width: 100%;
+    position: absolute;  /* ШАПКА БУДЕТ ПОВЕРХ ДРУГИХ ЭЛЕМЕНТОВ, ОТДЕЛИЛИ ОТ ИНТРО*/
+    top: 0;     /* ПО-УМОЛЧАНИЮ */
+    left: 0;    /* ПО-УМОЛЧАНИЮ */
+    z-index: 1000;
+
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between; /* СОЗДАЁТ ПРОСТРАНСТВО МЕЖДУ ЭЛЕМЕНТАМИ У FLEX*/
+    padding: 35px 0; /* ОТСТУП ДЛЯ ШАПКИ СВЕРХУ И СНИЗУ ОТ РАМКИ*/
+    border-bottom: 1px solid #515369;
+
+    align-items: center; /* ВЫРАВНИВАЕТ ЭЛЕМЕНТЫ ПО ГОРИЗОНТАЛЬНОЙ ЛИНИИ */
+}
+
+/* NAV
+============================*/
+
+.nav {
+    display: flex;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.nav__link {
+    margin-left: 50px;  /* РАЗДЕЛЯЕТ ЭЛЕМЕНТЫ ДРУГ ОТ ДРУГА */
+    color:#fff;
+    text-transform: uppercase;
+    text-decoration: none; /* УБИРАЕМ ПОДЧЕРКИВАНИЕ */
+    opacity: 0.75;
+
+    transition: opacity 0.1s linear; /* ПЛАВНОЕ ПЕРЕКЛЮЧЕНИЕ ПРИ НАВЕДЕНИИ */
+    
+}
+
+.nav__link:first-child {  /* ПЕРВЫЙ ЭЛЕМЕНТ NAV */
+    margin-left: 0;       /* УБИРАЕМ ОТСТУП СЛЕВА */
+}
+
+.nav__link:hover {  /* ПРИ НАВЕДЕНИИ */
+    opacity: 1;   
+}
+
+/* INTRO
+============================*/
+
+.intro {
+    display: flex;
+    flex-direction: column; /* КАЖДЫЙ НОВЫЙ ЭЛЕМЕНТ БУДЕТ НАЧИНАТЬСЯ С НОВОЙ СТРОКИ */
+    justify-content: center;
+    height: 750px;   /* ВЫСОТА ЭЛЕМЕНТА ПОД КАРТИНКУ */
+    padding-top: 100px; /* СРАЗУ ПОСЛЕ ШАПКИ */
+    background: #31344e url(img/intro-bg.jpg) center no-repeat ;  /* ПЫТАЛСЯ ПОСТАВИТЬ COVER, НЕ РАБОТАЛО */
+}
+
+.intro__inner {
+    width: 100%;
+    max-width: 970px;
+    margin: 0 auto; 
+    text-align: center;
+}
+
+.intro__title {
+    margin: 0 0 30px; /* У ВСЕХ ЭЛЕМЕНТОВ ЕСТЬ MARGIN ПО УМОЛЧАНИЮ */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 65px;
+    line-height: 1.1;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+
+}
+
+.intro__subtitle {
+    font-size: 22px;
+    color: #fff;
+    line-height: 1.5;
+    font-weight: 400;
+    margin-bottom: 60px;
+
+}
+
+/* BUTTON
+============================*/
+
+.btn {
+    display: inline-block; /* ДЛЯ ТОГО ЧТОБЫ ЗАДАВАТЬ PADDING MARGIN ETC. */
+    vertical-align: top; /* ВЫРАВНИВАНИЕ ПО ВЕРХНЕЙ ГРАНИЦЕ */
+    padding: 14px 40px;
+    border-radius: 2px;
+    font-family: inherit;
+    border: 0;
+    cursor: pointer;
+  
+    font-size: 13px;
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+
+}
+
+.btn--red {
+    background-color: #e84545;
+    transition: background-color 0.1s linear;
+
+}
+
+.btn--red:hover {
+    background-color: #dd3434;
+}
+
+/* FEATURES*/
+
+.features {
+    display: flex;
+    margin: 95px 0; /* 95px + features__item 25 */
+    flex-wrap: wrap; /* ПЕРЕМЕЩАЕТ НА СЛЕДУЮЩУЮ СТРОКУ ЭЛЕМЕНТЫ, КОТОРЫЕ НЕ ПОМЕСТИЛИСЬ */
+
+}
+
+.features__item {
+    width: 33.333333%; /* КАЖДЫЙ ЭЛЕМЕНТ ЗАНИМАЕТ 33% от строки */
+    text-align: center;
+    padding: 0 40px;
+    margin: 25px 0;
+}
+
+.features__icon {
+    margin-bottom: 25px;
+}
+
+.features__title {
+    font-size: 14px;
+    color: #2d3033;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.features__text {
+    font-size: 14px;
+    color: #6c7279;
+    line-height: 1.5;
+}
+
+/* WORKS */
+.works {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.works__item {
+    width: 25%;
+    height: 350px;
+    position: relative;
+    overflow: hidden; /* СКРЫВАЕТ ЧАСТЬ ФОТОГРАФИИ, КОТОРАЯ ЗА БЛОКОМ */
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+
+.works__photo {
+    position: absolute; /* КАРТИНКА БУДЕТ ПОЗИЦИОНИРОВАТЬСЯ АБСОЛЮТНО ОТНОСИТЕЛЬНО WORKS__ITEM */
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+
+    transform: translate3d(-50%, -50%, 0); /* ВЫРАВНИВАЕТ КАРТИНКУ РОВНО ПО ЦЕНТРУ */
+}
+
+.works__content {
+    display: flex;
+    flex-direction: column; /* КАЖДЫЙ НОВЫЙ ЭЛЕМЕНТ БУДЕТ В КОЛОННУ */
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(232, 69, 69, 0.9);
+    position: absolute; /* ТАК ЖЕ ОТНОСИТЕЛЬНО WORKS__ITEM */
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+}
+
+.works__title {
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.works__text {
+    font-size: 14px;
+    color: #fff;
+}
+
+.works__item:hover .works__content { /* ПРИ НАВОДКЕ НА ITEM БУДЕТ ПОКАЗЫВАТЬ CONTENT */
+    opacity: 1;
+}
+
+/* TEAM */
+
+.team {
+    margin: 100px 0 70px;
+}
+
+.team__inner {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15; /* РАВНЫЙ PADDING, ЧТОБЫ КОНТЕНТ НАЧИНАЛСЯ ПО СЕТКЕ, ITEM ЗА СЕТКОЙ, А PADDING РОВНО ПО СЕТКЕ */
+}
+
+.team__item {
+    width: 25%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.photo {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.team__name {
+    font-size: 22px;
+    color: #2d3033;
+    margin-bottom: 8px;
+}
+
+.team__prof {
+    font-size: 13px;
+    color: #e84545;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.team__text {
+    font-size: 14px;
+    color: #6c7279;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* SOCIAL */
+.social {
+    display: flex;
+}
+
+.social__item {
+    display: flex;
+    justify-content: center; /* ПО ГОРИЗОНТАЛИ */
+    align-items: center; /* ПО ВЕРТИКАЛИ */
+    width: 40px;
+    height: 40px;
+
+    background-color: #fff;
+    border: 1px solid #e8ecee;
+    margin-right: 4px;
+    transition: background 0.1s linear;
+    transition: fill 0.1s linear;
+}
+
+.social__item:hover {
+    background-color: #e8ecee;
+}
+
+.social__item:hover .social__icon {
+    fill: #000;
+}
+
+.social__icon {
+    display: block; /* ДЛЯ ТОГО, ЧТОБЫ УПРАВЛЯТЬ РАЗМЕРОМ */
+    height: 18px;
+    fill: #c6cacc;
+}
+
+@media screen and (max-width: 425px) {
+    .features {
+        flex-direction: column;
+    }
+
+    .features__item {
+        margin: 0 auto 50px;
+        width: 70%;
+    }
+    
+    .works__item {
+        width: 50%;
+    }
+
+    .team__item {
+        width: 90%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .photo {
+        margin: 0 auto 20px;
+    }
+
+    .social {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+}
